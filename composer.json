@@ -1,0 +1,32 @@
+{
+    "name": "rmk/adr",
+    "description": "Action-Domain-Responsed package",
+    "license": "BSD-3-Clause",
+    "autoload": {
+        "psr-4": {
+            "Rmk\\Adr\\": "./src/Adr/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Rmk\\AdrTest\\": "./tests/AdrTest/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.3"
+    },
+    "authors": [
+        {
+            "name": "Kiril Savchev",
+            "email": "k.savchev@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.4",
+        "ext-json": "*",
+        "rmk/router": "^1.0",
+        "rmk/service-container": "^1.0",
+        "rmk/event-dispatcher": "^1.0",
+        "rmk/http": "^1.0"
+    }
+}
