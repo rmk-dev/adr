@@ -6,7 +6,7 @@ use JsonException;
 use Psr\Http\Message\ResponseInterface;
 use Rmk\Adr\Plugin\PluginAwareInterface;
 use Rmk\Adr\Plugin\PluginAwareTrait;
-use function GuzzleHttp\Psr7\stream_for;
+use GuzzleHttp\Psr7\Utils;
 
 /**
  * Class AbstractResponder
@@ -36,7 +36,7 @@ abstract class AbstractResponder implements ResponderInterface, PluginAwareInter
         $json = json_encode($result, JSON_THROW_ON_ERROR | JSON_HEX_TAG | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_BIGINT_AS_STRING);
         $this->response = $this->response->withStatus($statusCode)
             ->withHeader('Content-Type', $contentType)
-            ->withBody(stream_for($json));
+            ->withBody(Utils::streamFor($json));
 
         return $this->response;
     }
